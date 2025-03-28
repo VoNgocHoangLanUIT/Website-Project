@@ -21,7 +21,7 @@ jobs:
       - name: Move assigned issues to In Progress
         if: github.event.action == 'assigned'
         run: |
-          ISSUE_ID=$(gh project item-list 3 --owner VoNgocHoangLanUIT --format json | jq -r '.items[] | select(.content.title=="${{ github.event.issue.title }}") | .id')
-          gh project item-update 3 --owner VoNgocHoangLanUIT --id "$ISSUE_ID" --field "Status=In Progress"
+          ISSUE_ID=$(gh project item-list 3 --user VoNgocHoangLanUIT --format json | jq -r '.items[] | select(.content.title=="${{ github.event.issue.title }}") | .id')
+          gh project item-update 3 --user VoNgocHoangLanUIT --id "$ISSUE_ID" --field "Status=In Progress"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
