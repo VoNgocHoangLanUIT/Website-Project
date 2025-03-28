@@ -14,13 +14,13 @@ jobs:
       - name: Move newly created issues to Backlog
         if: github.event.action == 'opened'
         run: |
-          gh project item-add 3 --owner Võ Ngọc Hoàng Lân --title "${{ github.event.issue.title }}"
+          gh project item-add 3 --owner VoNgocHoangLanUIT --title "${{ github.event.issue.title }}"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Move assigned issues to In Progress
         if: github.event.action == 'assigned'
         run: |
-          gh project item-update 3 --owner Võ Ngọc Hoàng Lân --title "${{ github.event.issue.title }}" --field "Status=In Progress"
+          gh project item-update 3 --owner VoNgocHoangLanUIT --title "${{ github.event.issue.title }}" --field "Status=In Progress"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
