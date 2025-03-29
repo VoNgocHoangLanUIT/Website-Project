@@ -14,7 +14,7 @@ jobs:
       - name: Move newly created issues to Backlog
         if: github.event.action == 'opened'
         run: |
-          gh project item-add 3 --owner VoNgocHoangLanUIT --url "${{ github.event.issue.html_url }}"
+          gh project item-add 3 --user --url "${{ github.event.issue.html_url }}"
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
